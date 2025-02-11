@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard Admin</h1>
+        <p>Kelola transaksi Sociabuzz & leaderboard pemain</p>
+        
+        <h2>Leaderboard</h2>
+        <div id="leaderboard"></div>
+        
+        <button onclick="fetchLeaderboard()">Muat Ulang</button>
+    </div>
+
+    <script>
+        function fetchLeaderboard() {
+            fetch("https://minecraft-webhook.vercel.app/leaderboard")
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("leaderboard").innerHTML = data
+                    .map((player, i) => `${i+1}. ${player.username} - ${player.points} Coins`)
+                    .join("<br>");
+            });
+        }
+
+        fetchLeaderboard();
+    </script>
+</body>
+</html>

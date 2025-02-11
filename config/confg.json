@@ -1,0 +1,12 @@
+{
+    "secret_key": "ISI_SECRET_KEY",
+    "rcon": {
+      "host": "IP_SERVER",
+      "port": 25575,
+      "password": "ISI_PASSWORD"
+    },
+    "server": {
+      "port": 3000
+    }
+  }
+  
